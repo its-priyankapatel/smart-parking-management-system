@@ -1,8 +1,10 @@
-package Validator;
+package com.smart_parking.smart_parking.validator;
 
+import com.smart_parking.smart_parking.dto.ParkingFloorRequest;
 import com.smart_parking.smart_parking.dto.ParkingLocationRequest;
 
-public class Validate {
+public class Validate
+{
     public static void parkingLocationValidate(ParkingLocationRequest parkingLocationRequest)
     {
         if(parkingLocationRequest==null)
@@ -33,6 +35,24 @@ public class Validate {
         if(parkingLocationRequest.getLocation().trim().length()<3)
         {
             throw new IllegalArgumentException("Parking location should be at least 3 characters");
+        }
+    }
+    public static void parkingFloorValidate(ParkingFloorRequest parkingFloorRequest)
+    {
+        if(parkingFloorRequest==null || (parkingFloorRequest.getFloorNumber()==null && parkingFloorRequest.getParkingLocationId()==null))
+        {
+            throw new IllegalArgumentException("parking floor data is required");
+        }
+        if(parkingFloorRequest.getFloorNumber()==null)
+        {
+            throw new IllegalArgumentException("Floor Number is required");
+        }
+        if(parkingFloorRequest.getFloorNumber()<0)
+        {
+            throw new IllegalArgumentException("Floor number should be valid");
+        }
+        if (parkingFloorRequest.getParkingLocationId() == null) {
+            throw new IllegalArgumentException("Parking location ID is required");
         }
     }
 }

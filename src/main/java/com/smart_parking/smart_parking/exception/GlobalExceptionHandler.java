@@ -1,7 +1,6 @@
-package com.smart_parking.smart_parking.Exception;
+package com.smart_parking.smart_parking.exception;
 
 import com.smart_parking.smart_parking.dto.ExceptionResponse;
-import com.smart_parking.smart_parking.dto.ParkingLocationResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,6 +1,6 @@
 package com.smart_parking.smart_parking.service;
 
-import Validator.Validate;
+import com.smart_parking.smart_parking.validator.Validate;
 import com.smart_parking.smart_parking.dto.ParkingLocationRequest;
 import com.smart_parking.smart_parking.dto.ParkingLocationResponse;
 import com.smart_parking.smart_parking.entity.ParkingLocation;
