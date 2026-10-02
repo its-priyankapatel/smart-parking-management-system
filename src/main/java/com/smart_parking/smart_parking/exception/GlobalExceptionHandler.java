@@ -18,7 +18,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ExceptionResponse>handleInvalidRequest(HttpMessageNotReadableException exception)
     {
-        ExceptionResponse response=new ExceptionResponse(false, "Invalid vehicle type. Allowed values: BIKE, SCOOTER, CAR");
+        String message = exception.getMessage();
+
+        if (message != null && message.contains("VehicleType")) {
+            message = "Invalid vehicle type. Allowed values: BIKE, SCOOTER, CAR";
+        } else {
+            message = "Invalid request data";
+        }
+
+        ExceptionResponse response=new ExceptionResponse(false, message);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 }
