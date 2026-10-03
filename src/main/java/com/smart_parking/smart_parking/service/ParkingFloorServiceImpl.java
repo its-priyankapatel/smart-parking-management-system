@@ -34,4 +34,5 @@ public class ParkingFloorServiceImpl implements ParkingFloorService {
         ParkingFloor newParkingFloor = parkingFloorRepository.save(parkingFloor);
         return new ParkingFloorResponse(true,"Parking floor created successfully",newParkingFloor);
     }
+
 }
