@@ -1,5 +1,6 @@
 package com.smart_parking.smart_parking.validator;
 
+import com.smart_parking.smart_parking.dto.LoginRequest;
 import com.smart_parking.smart_parking.dto.UserRequest;
 
 public class UserValidate {
@@ -52,4 +53,30 @@ public class UserValidate {
                     "Mobile number must contain 10 digits");
         }
     }
+
+    public static void loginUserValidate(LoginRequest loginRequest)
+    {
+        if(loginRequest==null)
+        {
+            throw new IllegalArgumentException("Login data is required");
+        }
+        if(loginRequest.getEmail()==null)
+        {
+            throw new IllegalArgumentException("Email is required");
+        }
+        if (!loginRequest.getEmail().matches(
+                "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+            throw new IllegalArgumentException(
+                    "Invalid email format");
+        }
+        if(loginRequest.getPassword()==null)
+        {
+            throw new IllegalArgumentException("Password is required");
+        }
+        if(loginRequest.getPassword().length()<8)
+        {
+            throw new IllegalArgumentException("Password must be at least 8 characters");
+        }
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.smart_parking.smart_parking.controller;
 
+import com.smart_parking.smart_parking.dto.LoginRequest;
+import com.smart_parking.smart_parking.dto.LoginResponse;
 import com.smart_parking.smart_parking.dto.UserRequest;
 import com.smart_parking.smart_parking.dto.UserResponse;
 import com.smart_parking.smart_parking.service.UserService;
@@ -24,5 +26,12 @@ public class UserController {
      {
         UserResponse response = userService.createUser(userRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+     }
+
+     @PostMapping("/login")
+     ResponseEntity<LoginResponse> loginUser(@RequestBody LoginRequest loginRequest)
+     {
+      LoginResponse response = userService.loginUser(loginRequest);
+      return ResponseEntity.status(HttpStatus.OK).body(response);
      }
 }

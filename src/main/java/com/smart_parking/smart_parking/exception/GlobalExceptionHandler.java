@@ -7,6 +7,8 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import org.springframework.security.core.AuthenticationException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
@@ -28,5 +30,11 @@ public class GlobalExceptionHandler {
 
         ExceptionResponse response=new ExceptionResponse(false, message);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+    }
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ExceptionResponse> handleAuthenticationException(AuthenticationException exception)
+    {
+        ExceptionResponse response = new ExceptionResponse(false,"Invalid email or password");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 }

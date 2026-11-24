@@ -1,5 +1,6 @@
 package com.smart_parking.smart_parking.entity;
 
+import com.smart_parking.smart_parking.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +19,8 @@ public class User {
     private String email;
     private String password;
     private String mobileNumber;
+    @Enumerated(value = EnumType.STRING)
+    private UserRole role = UserRole.USER;
 }
+
+

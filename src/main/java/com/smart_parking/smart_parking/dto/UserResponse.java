@@ -1,6 +1,7 @@
 package com.smart_parking.smart_parking.dto;
 
 import com.smart_parking.smart_parking.entity.User;
+import com.smart_parking.smart_parking.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,5 +12,9 @@ import lombok.NoArgsConstructor;
 public class UserResponse {
     private boolean status;
     private String message;
-    private User user;
+    private Long userId;
+    private String name;
+    private String email;
+    private String mobileNumber;
+    private UserRole role;
 }
