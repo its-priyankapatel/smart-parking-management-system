@@ -70,8 +70,19 @@ public class SecurityConfig {
 
                         .requestMatchers(
                                 HttpMethod.POST,
-                                "/parking-location/create"
+                                "/parking-location/create",
+                                "/parking-floor/create",
+                                "/parking-slot/create",
+                                "/payment"
                         ).hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,
+                                "/reservation/create",
+                                "/vehicle/register",
+                                "/parking-session/create")
+                        .hasRole("USER")
+                        .requestMatchers(HttpMethod.PATCH,
+                                "/parking-session/*/exit")
+                        .hasRole("USER")
 
                         .anyRequest().authenticated()
                 )

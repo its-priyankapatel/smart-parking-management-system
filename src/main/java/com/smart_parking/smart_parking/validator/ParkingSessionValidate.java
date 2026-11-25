@@ -13,9 +13,5 @@ public class ParkingSessionValidate {
         {
             throw new IllegalArgumentException("Reservation Id is required");
         }
-        if(parkingSessionRequest.getEntryTime()==null)
-        {
-            throw new IllegalArgumentException("Entry Time is required");
-        }
     }
 }

@@ -11,5 +11,4 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ParkingSessionRequest {
     private Long reservationId;
-    private LocalDateTime entryTime;
 }

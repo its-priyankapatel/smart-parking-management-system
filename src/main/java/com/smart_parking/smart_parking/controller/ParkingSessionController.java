@@ -1,6 +1,5 @@
 package com.smart_parking.smart_parking.controller;
 
-import com.smart_parking.smart_parking.dto.ParkingSessionExitRequest;
 import com.smart_parking.smart_parking.dto.ParkingSessionRequest;
 import com.smart_parking.smart_parking.dto.ParkingSessionResponse;
 import com.smart_parking.smart_parking.service.ParkingSessionService;
@@ -27,9 +26,9 @@ public class ParkingSessionController {
     }
 
     @PatchMapping("/{id}/exit")
-    public ResponseEntity<ParkingSessionResponse> setExitTime(@PathVariable Long id,@RequestBody ParkingSessionExitRequest parkingSessionExitRequest)
+    public ResponseEntity<ParkingSessionResponse> setExitTime(@PathVariable Long id)
     {
-        ParkingSessionResponse response=parkingSessionService.addExitTime(id,parkingSessionExitRequest);
+        ParkingSessionResponse response = parkingSessionService.addExitTime(id);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
